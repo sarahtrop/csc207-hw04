@@ -111,9 +111,25 @@ public class Program {
 	 * @return		an integer
 	 */
 	public static int boundedMode(int[] arr) throws IllegalArgumentException {
-		int mode;
+		int mode = arr[0];
+		int[] aux = new int[arr.length];
+		int index = 0;
 		
-		
+		for (int j=1; j<arr.length; j++) {
+			int count = 0;
+			if (arr[j] != arr[j-1]) {
+				for (int i=0; i<arr.length; i++) {
+					if (arr[i] == mode) {
+						count++;
+					}
+					aux[j] = count;
+				}
+				for (int k=0; k<aux.length; k++) {
+					if (count > aux[k]) { index = k; }
+				}
+			}
+		}
+		mode = arr[index];
 		return mode;
 	}
 	
@@ -126,7 +142,7 @@ public class Program {
 	 * @return		an integer
 	 */
 	public static int unboundedMode(int[] arr) throws IllegalArgumentException {
-		int mode;
+		int mode = arr[0];
 		
 		return mode;
 	}
@@ -134,9 +150,9 @@ public class Program {
 	public static void main(String[] args) {
 		
 		// Testing contains
-		double[] arr = {0.2, 0.3, 0.5, 0.9, 1.4};
-		System.out.println("|1.6 - 1.4| < 0.2: " + contains(arr, 0.3, 1.6));
-		System.out.println("|0.3 - 0.5| < 0.4: " + contains(arr, 0.2, 0.3));
+		double[] doubleArr = {0.2, 0.3, 0.5, 0.9, 1.4};
+		System.out.println("|1.6 - 1.4| < 0.2: " + contains(doubleArr, 0.3, 1.6));
+		System.out.println("|0.3 - 0.5| < 0.4: " + contains(doubleArr, 0.2, 0.3));
 		
 		// Testing fastExp
 		System.out.println("2^3 = " + fastExp(2, 3));
@@ -155,6 +171,16 @@ public class Program {
 		String[] stringArr2 = {"Hey", "PM", "what's", "up", "?"};
 		System.out.println("hello world! -> " + concatAndReplicateAll(stringArr, 4));
 		System.out.println("Hey PM what's up? -> " + concatAndReplicateAll(stringArr2, 2));
+	
+		// Testing boundedMode
+		int[] modeArr = {1, 4, 5, 6, 6, 6, 1, 2};
+		int[] modeArr2 = {2, 2, 2, 5, 7, 2, 7, 7};
+		System.out.println("Mode of {1, 4, 5, 6, 1, 2}: " + boundedMode(modeArr));
+		System.out.println("Mode of {2, 2, 2, 5, 7, 2, 7, 7}: " + boundedMode(modeArr2));
+		
+		// Testing unboundedMode
+		//System.out.println("Mode of {1, 4, 5, 6, 1, 2}: " + unboundedMode(modeArr));
+		//System.out.println("Mode of {2, 2, 2, 5, 7, 2, 7, 7}: " + unboundedMode(modeArr2));
 	}
 
 }
