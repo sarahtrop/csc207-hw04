@@ -149,38 +149,6 @@ public class Program {
 	
 	public static void main(String[] args) {
 		
-		// Testing contains
-		double[] doubleArr = {0.2, 0.3, 0.5, 0.9, 1.4};
-		System.out.println("|1.6 - 1.4| < 0.2: " + contains(doubleArr, 0.3, 1.6));
-		System.out.println("|0.3 - 0.5| < 0.4: " + contains(doubleArr, 0.2, 0.3));
-		
-		// Testing fastExp
-		System.out.println("2^3 = " + fastExp(2, 3));
-		System.out.println("2^4 = " + fastExp(2, 4));
-		System.out.println("2^6 = " + fastExp(2, 6));
-		/*
-		// Testing allPairs
-		// ASK PM ABOUT PRINTING PAIRS SO I CAN CHECK THE ACCURACY OF MY METHOD
-		int[] pairArr = {3, 5, 9};
-		int[] pairArr2 = {1, 4, 6, 8};
-		System.out.println("{3, 5, 9} pairs: " + Arrays.toString(allPairs(pairArr)));
-		System.out.println("{1, 4, 6, 8} pairs: " + Arrays.toString(allPairs(pairArr2)));
-		*/
-		// Testing concatAndReplicateAll
-		String[] stringArr = {"hello", "world", "!"};
-		String[] stringArr2 = {"Hey", "PM", "what's", "up", "?"};
-		System.out.println("hello world! -> " + concatAndReplicateAll(stringArr, 4));
-		System.out.println("Hey PM what's up? -> " + concatAndReplicateAll(stringArr2, 2));
-	
-		// Testing boundedMode
-		int[] modeArr = {1, 4, 5, 6, 6, 6, 1, 2};
-		int[] modeArr2 = {2, 2, 2, 5, 7, 2, 7, 7};
-		System.out.println("Mode of {1, 4, 5, 6, 1, 2}: " + boundedMode(modeArr));
-		System.out.println("Mode of {2, 2, 2, 5, 7, 2, 7, 7}: " + boundedMode(modeArr2));
-		
-		// Testing unboundedMode
-		//System.out.println("Mode of {1, 4, 5, 6, 1, 2}: " + unboundedMode(modeArr));
-		//System.out.println("Mode of {2, 2, 2, 5, 7, 2, 7, 7}: " + unboundedMode(modeArr2));
 	}
 
 }
