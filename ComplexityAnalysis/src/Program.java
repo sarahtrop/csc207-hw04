@@ -101,26 +101,37 @@ public class Program {
 	 * @return		an integer
 	 */
 	public static int boundedMode(int[] arr) throws IllegalArgumentException {
-		int mode = arr[0];
 		int[] aux = new int[arr.length];
-		int index = 0;
-		
-		for (int j=1; j<arr.length; j++) {
-			int count = 0;
-			if (arr[j] != arr[j-1]) {
-				for (int i=0; i<arr.length; i++) {
-					if (arr[i] == mode) {
-						count++;
-					}
-					aux[j] = count;
-				}
-				for (int k=0; k<aux.length; k++) {
-					if (count > aux[k]) { index = k; }
-				}
+		int count = 0;
+		for (j=0; j<arr.length; j++) {
+			int mode = arr[j];
+			for (int i=0; i<arr.length; i++) {
+				if (arr[i] == mode) { count++; }
+				aux[i] = count;
 			}
 		}
-		mode = arr[index];
-		return mode;
+		int max_freq = max(aux);
+		int[] repeats = new int[arr.length];
+		for (int k=0; k<aux.length; k++) {
+			if(aux[k] == max_freq) { repeats[k] = arr[k]; }
+		}
+		return min(repeats);
+	}
+	
+	public static int max(int[] arr) throws IllegalArgumentException {
+		int max = arr[0];
+		for (int i = 1; i < arr.length; i++) {
+			max = Math.max(arr[i], max);
+		}
+		return max;
+	}
+	
+	public static int min(int[] arr) throws IllegalArgumentException {
+		int min = arr[0];
+		for (int i = 1; i < arr.length; i++) {
+			min = Math.min(arr[i], min);
+		}
+		return min;
 	}
 	
 	/**
