@@ -1,13 +1,3 @@
-/* Sarah Trop
- * Homework 4: Complexity Analysis
- * 
- * Resources:
- * On writing Javadoc comments
- * http://www.oracle.com/technetwork/articles/java/index-137868.html
- * On printing arrays
- * http://javadevnotes.com/java-print-array-examples
- */
-
 import java.lang.IllegalArgumentException;
 import java.util.Arrays;
 
