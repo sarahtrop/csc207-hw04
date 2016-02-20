@@ -1,5 +1,4 @@
 import java.lang.IllegalArgumentException;
-import java.util.Arrays;
 
 public class Program {
 	
@@ -101,28 +100,28 @@ public class Program {
 	 * @return		an integer
 	 */
 	public static int boundedMode(int[] arr) throws IllegalArgumentException {
-		int mode = arr[0];
+		int mode = 0;
 		int[] aux = new int[arr.length];
 		int index = 0;
-		
-		for (int j=1; j<arr.length; j++) {
+
+		for (int j=0; j<arr.length; j++) {
 			int count = 0;
-			if (arr[j] != arr[j-1]) {
-				for (int i=0; i<arr.length; i++) {
-					if (arr[i] == mode) {
-						count++;
-					}
-					aux[j] = count;
-				}
-				for (int k=0; k<aux.length; k++) {
-					if (count > aux[k]) { index = k; }
-				}
+			for (int i=0; i<arr.length; i++) {
+				if (arr[i] == mode) { count++; }
+				aux[j] = count;
 			}
-		}
+			for (int k=0; k<aux.length; k++) {
+				if (count == aux[k]) {
+					if (arr[count] < arr[k]) { index = count; }
+					else { index = k; }
+				}
+				else if (count > aux[k]) { index = k; }
+			}
+		} 
 		mode = arr[index];
 		return mode;
 	}
-	
+
 	/**
 	 * Problem 5 continued
 	 * Method that takes an array of integers and returns
