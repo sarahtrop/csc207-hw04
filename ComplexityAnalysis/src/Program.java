@@ -30,20 +30,17 @@ public class Program {
 	 * @param y	an integer
 	 * @return	an integer
 	 */
-	// exp is the right number, but when it goes into the return it isn't registering the value
-	// checked with print statements, don't know why return is being weird
 	public static int fastExp(int x, int y) {
 		int exp = x;
 		if (y == 0) { return 1; }
 		else if (y == 1) { return exp; }
 		else {
 			if (y % 2 == 0) {
-				fastExp(exp*exp, y/2);
+				return fastExp(exp*exp, y/2);
 			} else {
-				exp *= fastExp(exp*exp, (y-1)/2);
+				return fastExp(exp*exp*exp, (y-1)/2);
 			}
 		}
-		return exp;
 	}
 
 	/**
@@ -56,10 +53,11 @@ public class Program {
 	 * @throws IllegalArgumentException
 	 */
 	public static Pair[] allPairs(int[] arr) throws IllegalArgumentException{
-		Pair[] pairArr = new Pair[arr.length];
+		int length = arr.length;
+		Pair[] pairArr = new Pair[length];
 		
-		for (int i=0; i<arr.length; i++) {
-			for (int j = i; j<arr.length; j++) {
+		for (int i=0; i<length; i++) {
+			for (int j = i; j<length; j++) {
 				Pair currPair = new Pair(arr[i], arr[j]);
 				pairArr[i] = currPair;
 			}
@@ -78,7 +76,6 @@ public class Program {
 	 */
 	public static String concatAndReplicateAll(String[] arr, int n) {
 		String ret = "";
-		
 		for (int i=0; i<arr.length; i++) {
 			for (int j=1; j<n; j++) {
 				ret += arr[i];

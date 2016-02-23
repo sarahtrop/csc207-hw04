@@ -1,5 +1,6 @@
 /*
  * Testing functions written in Program.java
+ * No test written for allPairs.
  */
 
 import static org.junit.Assert.*;
@@ -19,23 +20,10 @@ public class ProgramTest {
 		assertEquals("2^0 = 1", 1, Program.fastExp(2, 0));
 		assertEquals("2^1 = 2", 2, Program.fastExp(2, 1));
 		assertEquals("2^2 = 4", 4, Program.fastExp(2, 2));
-		assertEquals("2^3 = 8", 8, Program.fastExp(2, 3));
-		assertEquals("2^4 = 16", 16, Program.fastExp(2, 4));
 		assertEquals("2^6 = 64", 64, Program.fastExp(2, 6));
+		assertEquals("2^8 = 256", 256, Program.fastExp(2, 8));
 	}
-	/*
-	 * ASK PM ABOUT TESTING THIS FUNCTION
-	@Test
-	public void allPairsTest() {
-		int[] pairArr = {3, 5, 9};
-		int[] pairArr2 = {1, 4, 6, 8};
-		Pair[] returnPairs = {(3, 3), (3, 5), (3, 9), (5, 3), (5, 5), (5, 9), (9, 3), (9, 5), (9, 9)};
-		Pair[] returnPairs2 = {(1, 1), (1, 8), (8, 1), (8, 8)};
-				
-		assertEquals("{3, 5, 9} pairs: {(3, 3), (3, 5), (3, 9), (5, 3), (5, 5), (5, 9), (9, 3), (9, 5), (9, 9)}", returnPairs, Program.allPairs(pairArr));
-		assertEquals("{1, 8} pairs: {(1, 1), (1, 8), (8, 1), (8, 8)}", returnPairs2, Program.allPairs(pairArr2));
-	}
-	*/
+
 	@Test
 	public void concatAndReplicateTest() {
 		String[] stringArr = {"hello", "world", "!"};
